@@ -1,5 +1,5 @@
+com/example/springboot/model/Vehiculo.class
+com/example/springboot/controller/VehiculoController.class
 com/example/springboot/Application.class
-com/example/springboot/controller/VehicleController.class
-com/example/springboot/model/Vehicle.class
+com/example/springboot/repository/VehiculoRepository.class
 com/example/springboot/controller/HelloController.class
-com/example/springboot/repository/VehicleRepository.class
