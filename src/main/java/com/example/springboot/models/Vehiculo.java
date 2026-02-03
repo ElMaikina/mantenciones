@@ -23,7 +23,7 @@ public class Vehiculo {
     private String patente;
 
 	@Column(name = "kilometros_actuales")
-	@PositiveOrZero(value = 0, message = "El kilometraje actual no puede ser negativo")
+	@PositiveOrZero(message = "El kilometraje actual no puede ser negativo")
 	@NotNull(message = "Debe indicar el kilometraje actual del vehiculo")
     private int kilometros_actuales;
 

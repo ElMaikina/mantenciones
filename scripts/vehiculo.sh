@@ -1,1 +1,1 @@
-curl -X POST http://localhost:8080/vehiculos -H "Content-Type: application/json" -d '{"kilometros":1000,"patente":"BANA74","tipo":"Minibus"}' | jq '.'
+curl -X POST http://localhost:8080/vehiculos -H "Content-Type: application/json" -d '{"kilometros_actuales":12,"kilometros_entre":100,"patente":"CATA28","tipo":"Bus","observacion":"Impeable"}' | jq '.'

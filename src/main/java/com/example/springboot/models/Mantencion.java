@@ -20,10 +20,11 @@ public class Mantencion {
     private long id;
 
 	@Column(name = "fecha")
-	@NotNull(message = "La fecha de la mantencion es obligatoria")
+	@NotNull(message = "Debe indicar la fecha al momento de la mantencion")
     private LocalDate fecha;
 
 	@Column(name = "kilometros")
+	@PositiveOrZero(message = "El kilometraje al momento de la mantencion no puede ser negativo")
 	@NotNull(message = "Debe indicar el kilometraje al momento de la mantencion")
     private int kilometros;
 
@@ -35,7 +36,6 @@ public class Mantencion {
 
     @ManyToOne
 	@JoinColumn(name = "vehiculo_id")
-	@NotNull(message = "Debe especificar el vehiculo al que se le hizo mantencion")
     private Vehiculo vehiculo;
 
 	public Mantencion() {
@@ -44,7 +44,9 @@ public class Mantencion {
 	public Mantencion(Mantencion mantencion) {
 		this.fecha = mantencion.getFecha();
 		this.kilometros = mantencion.getKilometros();
+		this.ubicacion = mantencion.getUbicacion();
 		this.vehiculo = mantencion.getVehiculo();
+		this.detalle = mantencion.getDetalle();
 	}
 
 	public long getId() {
@@ -57,6 +59,14 @@ public class Mantencion {
 
 	public int getKilometros() {
 		return kilometros;
+	}
+
+	public String getUbicacion() {
+		return ubicacion;
+	}
+
+	public String getDetalle() {
+		return detalle;
 	}
 
 	public Vehiculo getVehiculo() {
@@ -73,6 +83,14 @@ public class Mantencion {
 
 	public void setKilometros(int kilometros) {
 		this.kilometros = kilometros;
+	}
+
+	public void setUbicacion(String ubicacion) {
+		this.ubicacion = ubicacion;
+	}
+
+	public void setDetalle(String detalle) {
+		this.detalle = detalle;
 	}
 
 	public void setVehiculo(Vehiculo vehiculo) {

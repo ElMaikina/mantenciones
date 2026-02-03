@@ -24,6 +24,7 @@ spring.datasource.url=jdbc:mariadb://localhost:3306/Mantenciones
 spring.datasource.username=
 spring.datasource.password=
 spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
+spring.jackson.property-naming-strategy=SNAKE_CASE
 spring.jpa.show-sql=true
 ```
 

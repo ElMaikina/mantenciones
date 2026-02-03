@@ -1,0 +1,10 @@
+com/example/springboot/models/Mantencion.class
+com/example/springboot/Application.class
+com/example/springboot/models/Vehiculo.class
+com/example/springboot/repositories/MantencionRepository.class
+com/example/springboot/controller/MantencionController.class
+com/example/springboot/serializers/MantencionSerial.class
+com/example/springboot/controller/VehiculoController.class
+com/example/springboot/repositories/VehiculoRepository.class
+com/example/springboot/serializers/VehiculoSerial.class
+com/example/springboot/controller/HelloController.class

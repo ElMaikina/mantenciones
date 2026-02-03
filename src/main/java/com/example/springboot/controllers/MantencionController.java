@@ -4,37 +4,39 @@ import com.example.springboot.models.Vehiculo;
 import com.example.springboot.models.Mantencion;
 import com.example.springboot.repositories.VehiculoRepository;
 import com.example.springboot.repositories.MantencionRepository;
-import com.example.springboot.dto.MantencionDTO;
+import com.example.springboot.serializers.MantencionSerial;
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.validation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/vehiculos/{vehiculoId}/mantenciones")
+@RequestMapping("/vehiculos/{vehiculo_id}/mantenciones")
 public class MantencionController {
 
-    private final VehiculoRepository vehiculoRepo;
-    private final MantencionRepository mantencionRepo;
+    private final VehiculoRepository vehiculos;
+    private final MantencionRepository mantenciones;
 
-    public MantencionController(VehiculoRepository vehiculoRepo, MantencionRepository mantencionRepo) {
-        this.vehiculoRepo = vehiculoRepo;
-        this.mantencionRepo = mantencionRepo;
+    public MantencionController(VehiculoRepository vehiculos, MantencionRepository mantenciones) {
+        this.vehiculos = vehiculos;
+        this.mantenciones = mantenciones;
     }
 
     @PostMapping
-    public Mantencion create(@PathVariable Long vehiculoId, @RequestBody Mantencion mantencion) {
-        Vehiculo vehiculo = vehiculoRepo.findById(vehiculoId).orElseThrow();
-        mantencion.setVehiculo(vehiculo);
-        return mantencionRepo.save(mantencion);
+    public MantencionSerial create(@PathVariable Long vehiculo_id, @Valid @RequestBody Mantencion body) {
+        Vehiculo vehiculo = vehiculos.findById(vehiculo_id).orElseThrow();
+        body.setVehiculo(vehiculo);
+        Mantencion m = mantenciones.save(body);
+        MantencionSerial s = new MantencionSerial(m);
+        return s;
     }
 
     @GetMapping
-    public List<MantencionDTO> list(@PathVariable Long vehiculoId) {
-        return mantencionRepo.findByVehiculoId(vehiculoId).stream()
+    public List<MantencionSerial> list(@PathVariable Long vehiculo_id) {
+        return mantenciones.findByVehiculoId(vehiculo_id).stream()
             .map(m -> {
-                MantencionDTO dto = new MantencionDTO(m);
-                return dto;
+                MantencionSerial s = new MantencionSerial(m);
+                return s;
             })
             .toList();
     }
