@@ -1,59 +1,74 @@
 package com.example.springboot.model;
 
+import jakarta.validation.constraints.*;
 import jakarta.persistence.*;
 import java.util.List;
 
+/*
+Clase que sirve para modelar los distintos tipos de vehiculo
+a los cuales se les hace la mantencion.
+*/
+
 @Entity
-@Table(name="vehiculos")
+@Table(name="Vehiculos")
 public class Vehiculo {
 
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-	@Column(name="patente")
+	@Column(name = "patente")
+	@NotNull(message = "La patente unica es obligatoria")
+	@Pattern(regexp = "[A-Za-z]{4}[-]?[0-9]{2}", message = "La patente ingresada es invalida")
     private String patente;
 
-	@Column(name="unidad")
-    private String unidad;
+	@NotNull(message = "Los kilometros entre mantenciones son obligatorios")
+	@Column(name = "kilometros")
+    private int kilometros;
 
-	@Column(name="kilometraje")
-    private int kilometraje;
+	@NotNull(message = "El tipo de vehiculo es obligatorio")
+	@Column(name = "tipo")
+    private String tipo;
 
 	public Vehiculo() {
 	}
 
 	public Vehiculo(Vehiculo vehiculo) {
-		this.patente = vehiculo.getPatente();
-		this.unidad = vehiculo.getUnidad();
-		this.kilometraje = vehiculo.getKilometraje();
+		this.patente = vehiculo.getPatente().toUpperCase().replaceAll("-", "");
+		this.kilometros = vehiculo.getKilometros();
+		this.tipo = vehiculo.getTipo();
 	}
 
 	public long getId() {
 		return id;
 	}
+
 	public String getPatente() {
 		return patente;
 	}
-	public String getUnidad() {
-		return unidad;
+
+	public int getKilometros() {
+		return kilometros;
 	}
-	public int getKilometraje() {
-		return kilometraje;
+
+	public String getTipo() {
+		return tipo;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public void setType(String patente) {
+
+	public void setPatente(String patente) {
 		this.patente = patente;
 	}
-	public void setUnidad(String unidad) {
-		this.unidad = unidad;
+
+	public void setKilometros(int kilometros) {
+		this.kilometros = kilometros;
 	}
-	public void setKilometraje(Integer kilometraje) {
-		this.kilometraje = kilometraje;
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 }
-

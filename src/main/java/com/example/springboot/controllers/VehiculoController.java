@@ -4,6 +4,7 @@ import com.example.springboot.model.Vehiculo;
 import com.example.springboot.repository.VehiculoRepository;
 import org.springframework.web.bind.annotation.*;
 
+import jakarta.validation.*;
 import java.util.List;
 
 @RestController
@@ -28,13 +29,13 @@ public class VehiculoController {
     }
 
     @PostMapping
-    public Vehiculo create(@RequestBody Vehiculo body) {
+    public Vehiculo create(@Valid @RequestBody Vehiculo body) {
 		Vehiculo vehiculo = new Vehiculo(body);
         return repository.save(vehiculo);
     }
 
     @PutMapping("/{id}")
-    public Vehiculo update(@PathVariable Long id, @RequestBody Vehiculo body) {
+    public Vehiculo update(@Valid @PathVariable Long id, @RequestBody Vehiculo body) {
 		Vehiculo vehiculo = new Vehiculo(body);
         vehiculo.setId(id);
         return repository.save(vehiculo);

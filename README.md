@@ -20,7 +20,7 @@ desde la raiz del proyecto y tiene el siguiente formato:
 
 ```
 spring.jpa.hibernate.ddl-auto=update
-spring.datasource.url=jdbc:mariadb://localhost:3306/mantenciones
+spring.datasource.url=jdbc:mariadb://localhost:3306/Mantenciones
 spring.datasource.username=
 spring.datasource.password=
 spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
@@ -34,7 +34,7 @@ Posteriormente, deben crear la base de datos con el nombre
 _mantenciones_:
 
 ```
-MariaDB [(none)]> CREATE DATABASE mantenciones;
+MariaDB [(none)]> CREATE DATABASE Mantenciones;
 Query OK, 1 row affected (0.001 sec)
 ```
 
