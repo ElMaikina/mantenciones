@@ -1,7 +1,7 @@
 package com.example.springboot.controller;
 
-import com.example.springboot.model.Vehiculo;
-import com.example.springboot.repository.VehiculoRepository;
+import com.example.springboot.models.Vehiculo;
+import com.example.springboot.repositories.VehiculoRepository;
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.validation.*;

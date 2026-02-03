@@ -1,4 +1,4 @@
-package com.example.springboot.model;
+package com.example.springboot.models;
 
 import jakarta.validation.constraints.*;
 import jakarta.persistence.*;
@@ -18,24 +18,38 @@ public class Vehiculo {
     private long id;
 
 	@Column(name = "patente")
-	@NotNull(message = "La patente unica es obligatoria")
+	@NotNull(message = "Debe indicar la patente unica del vehiculo")
 	@Pattern(regexp = "[A-Za-z]{4}[-]?[0-9]{2}", message = "La patente ingresada es invalida")
     private String patente;
 
-	@NotNull(message = "Los kilometros entre mantenciones son obligatorios")
-	@Column(name = "kilometros")
-    private int kilometros;
+	@Column(name = "kilometros_actuales")
+	@PositiveOrZero(value = 0, message = "El kilometraje actual no puede ser negativo")
+	@NotNull(message = "Debe indicar el kilometraje actual del vehiculo")
+    private int kilometros_actuales;
 
-	@NotNull(message = "El tipo de vehiculo es obligatorio")
+	@Column(name = "kilometros_entre")
+	@Positive(message = "El kilometraje entre mantenciones debe ser mayor a cero")
+	@NotNull(message = "Debe indicar el kilometraje entre mantenciones")
+    private int kilometros_entre;
+
 	@Column(name = "tipo")
+	@NotNull(message = "Debe indicar el tipo de vehiculo")
     private String tipo;
+
+	@Column(name = "observacion")
+    private String observacion;
+
+    @OneToMany(mappedBy = "vehiculo", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Mantencion> mantenciones;
 
 	public Vehiculo() {
 	}
 
 	public Vehiculo(Vehiculo vehiculo) {
 		this.patente = vehiculo.getPatente().toUpperCase().replaceAll("-", "");
-		this.kilometros = vehiculo.getKilometros();
+		this.kilometros_actuales = vehiculo.getKilometrosActuales();
+		this.kilometros_entre = vehiculo.getKilometrosEntre();
+		this.observacion = vehiculo.getObservacion();
 		this.tipo = vehiculo.getTipo();
 	}
 
@@ -47,12 +61,20 @@ public class Vehiculo {
 		return patente;
 	}
 
-	public int getKilometros() {
-		return kilometros;
+	public int getKilometrosActuales() {
+		return kilometros_actuales;
+	}
+
+	public int getKilometrosEntre() {
+		return kilometros_entre;
 	}
 
 	public String getTipo() {
 		return tipo;
+	}
+
+	public String getObservacion() {
+		return observacion;
 	}
 
 	public void setId(Long id) {
@@ -63,12 +85,20 @@ public class Vehiculo {
 		this.patente = patente;
 	}
 
-	public void setKilometros(int kilometros) {
-		this.kilometros = kilometros;
+	public void setKilometrosActuales(int kilometros) {
+		this.kilometros_actuales = kilometros;
+	}
+
+	public void setKilometrosEntre(int kilometros) {
+		this.kilometros_entre = kilometros;
 	}
 
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+
+	public void Observacion(String observacion) {
+		this.observacion = observacion;
 	}
 
 }

@@ -1,6 +1,6 @@
-package com.example.springboot.model;
+package com.example.springboot.models;
 
-import com.example.springboot.model.Vehiculo;
+import com.example.springboot.models.Vehiculo;
 import jakarta.validation.constraints.*;
 import jakarta.persistence.*;
 import java.time.LocalDate;
@@ -20,15 +20,22 @@ public class Mantencion {
     private long id;
 
 	@Column(name = "fecha")
-	@NotNull(message = "La fecha es obligatoria")
+	@NotNull(message = "La fecha de la mantencion es obligatoria")
     private LocalDate fecha;
 
 	@Column(name = "kilometros")
-	@NotNull(message = "Los Kilometros de la mantencion son obligatorios")
+	@NotNull(message = "Debe indicar el kilometraje al momento de la mantencion")
     private int kilometros;
 
+	@Column(name = "ubicacion")
+    private String ubicacion;
+
+	@Column(name = "detalle")
+    private String detalle;
+
     @ManyToOne
-    @JoinColumn(name = "vehiculo_id")
+	@JoinColumn(name = "vehiculo_id")
+	@NotNull(message = "Debe especificar el vehiculo al que se le hizo mantencion")
     private Vehiculo vehiculo;
 
 	public Mantencion() {
@@ -66,6 +73,10 @@ public class Mantencion {
 
 	public void setKilometros(int kilometros) {
 		this.kilometros = kilometros;
+	}
+
+	public void setVehiculo(Vehiculo vehiculo) {
+		this.vehiculo = vehiculo;
 	}
 
 }
