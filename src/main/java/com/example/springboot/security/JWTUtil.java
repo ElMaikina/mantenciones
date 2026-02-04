@@ -9,6 +9,20 @@ import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
+/*
+JWTUtil:
+    Herramienta para la encripcion, lectura y validacion de los JWT.
+    Utiliza criptografia para la inicializacion de las llaves y
+    los parametros de configuracion se inyectan a traves de las
+    anotaciones.
+
+	Campos:
+	* jwt_secret: String que contiene el valor clave para la autenticacion. 
+    (yo use el correo)
+	* jwt_expiration_ms: Tiempo de validez en milisegundos para el JWT.
+	* key: Llave para la encriptacion y desencriptacion de los datos.
+*/
+
 @Component
 public class JWTUtil {
 

@@ -13,6 +13,22 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+/*
+WebSecurityConfig:
+    Clase que almacena la configuracion de seguridad web para toda la
+    aplicacion. Define el uso de CORS, CSRF, handlers de excepciones
+    y autorizacion respecto a los endpoints.
+
+	Campos:
+	* user_details_service: Implementacion personalizada para validacion.
+	* unauthorized_handler: Handler para accesos no autorizados.
+
+    Documentacion:
+    https://docs.spring.io/spring-security/reference/servlet/architecture.html
+    https://medium.com/@CodeWithTech/understanding-cors-and-csrf-a-guide-for-spring-security-feb34b81a3a4
+    https://www.baeldung.com/spring-security-custom-filter
+*/
+
 @Configuration
 public class WebSecurityConfig {
 
@@ -29,22 +45,24 @@ public class WebSecurityConfig {
 
     @Bean
     public AuthenticationManager authenticationManager(
-            AuthenticationConfiguration authenticationConfiguration
+        AuthenticationConfiguration authenticationConfiguration
     ) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
+    // Metodo de encripcion para la contrasena de los usuarios
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    // Establece la configuracion general de seguridad para la aplicacion.
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         // Updated configuration for Spring Security 6.x
         http
-            .csrf(csrf -> csrf.disable()) // Disable CSRF
-            .cors(cors -> cors.disable()) // Disable CORS (or configure if needed)
+            .csrf(csrf -> csrf.disable()) // Desabilita CSRF
+            .cors(cors -> cors.disable()) // Desabilita CORS
             .exceptionHandling(exceptionHandling ->
                 exceptionHandling.authenticationEntryPoint(unauthorized_handler)
             )
@@ -56,7 +74,7 @@ public class WebSecurityConfig {
                     .requestMatchers("/auth/**", "/").permitAll() // Use 'requestMatchers' instead of 'antMatchers'
                     .anyRequest().authenticated()
             );
-        // Add the JWT Token filter before the UsernamePasswordAuthenticationFilter
+        // Agregar el filtro por JWT antes que UsernamePasswordAuthenticationFilter
         http.addFilterBefore(authenticationJWTTokenFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
