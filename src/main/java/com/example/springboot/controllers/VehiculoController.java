@@ -7,43 +7,52 @@ import org.springframework.web.bind.annotation.*;
 import jakarta.validation.*;
 import java.util.List;
 
+/*
+VehiculoController:
+	Clase que administra la entrada y salida de los registros de vehiculos.
+    Esta clase en particular permite: Crear, Leer, Actualizar y Borrar.
+
+	Campos:
+	* vehiculos: Conexion con la tabla de vehiculos en la base de datos.
+*/
+
 @RestController
 @RequestMapping("/vehiculos")
 @CrossOrigin(origins="*")
 public class VehiculoController {
 
-    private final VehiculoStorage repository;
+    private final VehiculoStorage vehiculos;
 
-    public VehiculoController(VehiculoStorage repository) {
-        this.repository = repository;
+    public VehiculoController(VehiculoStorage vehiculos) {
+        this.vehiculos = vehiculos;
     }
 
     @GetMapping
-    public List<Vehiculo> getAll() {
-        return repository.findAll();
+    public List<Vehiculo> search() {
+        return vehiculos.findAll();
     }
 
     @GetMapping("/{id}")
-    public Vehiculo getOne(@PathVariable Long id) {
-        return repository.findById(id).orElseThrow();
+    public Vehiculo find(@PathVariable Long id) {
+        return vehiculos.findById(id).orElseThrow();
     }
 
     @PostMapping
     public Vehiculo create(@Valid @RequestBody Vehiculo body) {
 		Vehiculo vehiculo = new Vehiculo(body);
-        return repository.save(vehiculo);
+        return vehiculos.save(vehiculo);
     }
 
     @PutMapping("/{id}")
     public Vehiculo update(@Valid @PathVariable Long id, @RequestBody Vehiculo body) {
 		Vehiculo vehiculo = new Vehiculo(body);
         vehiculo.setId(id);
-        return repository.save(vehiculo);
+        return vehiculos.save(vehiculo);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
-        repository.deleteById(id);
+        vehiculos.deleteById(id);
     }
 }
 

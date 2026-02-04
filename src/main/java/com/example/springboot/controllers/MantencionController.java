@@ -10,6 +10,18 @@ import org.springframework.web.bind.annotation.*;
 import jakarta.validation.*;
 import java.util.List;
 
+/*
+MantencionController:
+	Clase que administra la entrada y salida de los registros de mantenciones.
+    La lectura de los registros de mantenciones depende de los vehiculos, por
+    ende, este controlador se conecta a ambas tablas para validar.
+    Esta clase en particular permite: Crear y Leer.
+
+	Campos:
+	* vehiculos: Conexion con la tabla de vehiculos en la base de datos.
+	* mantenciones: Conexion con la tabla de mantenciones en la base de datos.
+*/
+
 @RestController
 @RequestMapping("/vehiculos/{vehiculo_id}/mantenciones")
 public class MantencionController {
@@ -32,7 +44,7 @@ public class MantencionController {
     }
 
     @GetMapping
-    public List<MantencionView> list(@PathVariable Long vehiculo_id) {
+    public List<MantencionView> search(@PathVariable Long vehiculo_id) {
         return mantenciones.findByVehiculoId(vehiculo_id).stream()
             .map(m -> {
                 MantencionView s = new MantencionView(m);

@@ -4,8 +4,10 @@ import com.example.springboot.models.Vehiculo;
 import java.time.LocalDate;
 
 /*
-Clase que sirve para modelar los vehiculos
-visibles para un usuario.
+VehiculoView:
+	Clase intermedia para transformar el registro de un vehiculo en
+	una entidad visible para el usuario. Se crea a partir del modelo
+	original y le quita ciertos campos para que el usuario no los vea.
 */
 
 public class VehiculoView {

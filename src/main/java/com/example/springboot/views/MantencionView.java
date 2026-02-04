@@ -4,8 +4,10 @@ import com.example.springboot.models.Mantencion;
 import java.time.LocalDate;
 
 /*
-Clase que sirve para modelar las mantenciones
-visibles para un usuario.
+MantencionView:
+	Clase intermedia para transformar el registro de una mantencion en
+	una entidad visible para el usuario. Se crea a partir del modelo
+	original y le quita ciertos campos para que el usuario no los vea.
 */
 
 public class MantencionView {
