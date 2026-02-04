@@ -1,10 +1,10 @@
-# Transportes TC: Mantenciones
+# 🚚 Transportes TC: Mantenciones
 
-## Descripcion
+## 📚 Descripcion
 
 Aplicacion sencilla hecha para la gestion de mantenciones de vehiculos.
 
-## Requisitos
+## ⚙️ Requisitos
 
 Se deben tener instaladas las siguientes dependencias:
 
@@ -12,7 +12,7 @@ Se deben tener instaladas las siguientes dependencias:
 * Apache Maven 3.9.12
 * MariaDB 12.1.2
 
-## Ejecucion
+## 🔥 Ejecucion
 
 Primero crear el archivo de configuracion para la base de datos.
 Esta se encuentra en _src/main/resources/application.properties_
@@ -55,4 +55,39 @@ Finalmente, ejecutar la API:
 
 ```
 mvn spring-boot:run
+```
+
+# 📚 APIs
+
+Existen dos endpoints principales para el flujo de mantenimiento:
+
+ * `http://localhost:8080/vehiculos`: Permite crear, ver, borrar y cambiar vehiculos.
+
+ * `http://localhost:8080/vehiculos/{id}/mantenciones`: Permite crear y ver las mantenciones hechas a un vehiculo en especifico.
+
+Creacion de vehiculo:
+
+```
+curl -X POST http://localhost:8080/vehiculos\
+-H "Content-Type: application/json"\
+-d '{
+	"kilometros_actuales":0,
+	"kilometros_entre":100,
+	"patente":"CATA28",
+	"tipo":"Bus",
+	"observacion":"Vehiculo recien comprado, excelente estado."
+}'
+```
+
+Creacion de mantencion:
+
+```
+curl -X POST http://localhost:8080/vehiculos/3/mantenciones\
+-H "Content-Type: application/json"\
+-d '{
+	"fecha":"2026-01-01",
+	"kilometros":120,
+	"ubicacion":"Santiago",
+	"detalle":"Instalacion de nuevos frenos y camara de gases."
+}'
 ```
