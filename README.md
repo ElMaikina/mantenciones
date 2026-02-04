@@ -19,17 +19,23 @@ Esta se encuentra en _src/main/resources/application.properties_
 desde la raiz del proyecto y tiene el siguiente formato:
 
 ```
-spring.jpa.hibernate.ddl-auto=update
+# Configuracion de Base de Datos con MariaDB
 spring.datasource.url=jdbc:mariadb://localhost:3306/Mantenciones
 spring.datasource.username=
 spring.datasource.password=
 spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
+# Configuracion para el ORM con Hibernate
+spring.jpa.hibernate.ddl-auto=update
 spring.jackson.property-naming-strategy=SNAKE_CASE
 spring.jpa.show-sql=true
+# Configuracion para los JSON Web Token
+jwt.secret=
+jwt.expiration=
 ```
 
 En donde tienen que especificar el usuario y contrasena de su
-configuracion de MySQL / MariaDB.
+configuracion de MySQL / MariaDB, las configuraciones de los
+JWT y cualquier otro parametro especifico a su entorno.
 
 Posteriormente, deben crear la base de datos con el nombre
 _mantenciones_:
