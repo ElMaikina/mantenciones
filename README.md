@@ -68,8 +68,8 @@ Existen dos endpoints principales para el flujo de mantenimiento:
 Creacion de vehiculo:
 
 ```
-curl -X POST http://localhost:8080/vehiculos\
--H "Content-Type: application/json"\
+curl -X POST http://localhost:8080/vehiculos \
+-H "Content-Type: application/json" \
 -d '{
 	"kilometros_actuales":0,
 	"kilometros_entre":100,
@@ -82,8 +82,8 @@ curl -X POST http://localhost:8080/vehiculos\
 Creacion de mantencion:
 
 ```
-curl -X POST http://localhost:8080/vehiculos/3/mantenciones\
--H "Content-Type: application/json"\
+curl -X POST http://localhost:8080/vehiculos/3/mantenciones \
+-H "Content-Type: application/json" \
 -d '{
 	"fecha":"2026-01-01",
 	"kilometros":120,
