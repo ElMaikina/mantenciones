@@ -1,7 +1,7 @@
 package com.example.springboot.services;
 
 import com.example.springboot.models.Usuario;
-import com.example.springboot.repositories.UsuarioRepository;
+import com.example.springboot.storage.UsuarioStorage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import java.util.Collections;
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private UsuarioRepository repository;
+    private UsuarioStorage repository;
 
     @Override
     public UserDetails loadUserByUsername(String correo) throws UsernameNotFoundException {

@@ -1,7 +1,7 @@
 package com.example.springboot.controllers;
 
 import com.example.springboot.models.Usuario;
-import com.example.springboot.repositories.UsuarioRepository;
+import com.example.springboot.storage.UsuarioStorage;
 import com.example.springboot.security.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.*;
@@ -18,7 +18,7 @@ public class AuthController {
     AuthenticationManager auth_manager;
 
     @Autowired
-    UsuarioRepository repository;
+    UsuarioStorage repository;
 
     @Autowired
     PasswordEncoder encoder;

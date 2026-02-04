@@ -1,7 +1,7 @@
 package com.example.springboot.controller;
 
 import com.example.springboot.models.Vehiculo;
-import com.example.springboot.repositories.VehiculoRepository;
+import com.example.springboot.storage.VehiculoStorage;
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.validation.*;
@@ -12,9 +12,9 @@ import java.util.List;
 @CrossOrigin(origins="*")
 public class VehiculoController {
 
-    private final VehiculoRepository repository;
+    private final VehiculoStorage repository;
 
-    public VehiculoController(VehiculoRepository repository) {
+    public VehiculoController(VehiculoStorage repository) {
         this.repository = repository;
     }
 

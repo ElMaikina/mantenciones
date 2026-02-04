@@ -2,9 +2,9 @@ package com.example.springboot.controller;
 
 import com.example.springboot.models.Vehiculo;
 import com.example.springboot.models.Mantencion;
-import com.example.springboot.repositories.VehiculoRepository;
-import com.example.springboot.repositories.MantencionRepository;
-import com.example.springboot.serializers.MantencionSerial;
+import com.example.springboot.storage.VehiculoStorage;
+import com.example.springboot.storage.MantencionStorage;
+import com.example.springboot.views.MantencionView;
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.validation.*;
@@ -14,28 +14,28 @@ import java.util.List;
 @RequestMapping("/vehiculos/{vehiculo_id}/mantenciones")
 public class MantencionController {
 
-    private final VehiculoRepository vehiculos;
-    private final MantencionRepository mantenciones;
+    private final VehiculoStorage vehiculos;
+    private final MantencionStorage mantenciones;
 
-    public MantencionController(VehiculoRepository vehiculos, MantencionRepository mantenciones) {
+    public MantencionController(VehiculoStorage vehiculos, MantencionStorage mantenciones) {
         this.vehiculos = vehiculos;
         this.mantenciones = mantenciones;
     }
 
     @PostMapping
-    public MantencionSerial create(@PathVariable Long vehiculo_id, @Valid @RequestBody Mantencion body) {
+    public MantencionView create(@PathVariable Long vehiculo_id, @Valid @RequestBody Mantencion body) {
         Vehiculo vehiculo = vehiculos.findById(vehiculo_id).orElseThrow();
         body.setVehiculo(vehiculo);
         Mantencion m = mantenciones.save(body);
-        MantencionSerial s = new MantencionSerial(m);
+        MantencionView s = new MantencionView(m);
         return s;
     }
 
     @GetMapping
-    public List<MantencionSerial> list(@PathVariable Long vehiculo_id) {
+    public List<MantencionView> list(@PathVariable Long vehiculo_id) {
         return mantenciones.findByVehiculoId(vehiculo_id).stream()
             .map(m -> {
-                MantencionSerial s = new MantencionSerial(m);
+                MantencionView s = new MantencionView(m);
                 return s;
             })
             .toList();
