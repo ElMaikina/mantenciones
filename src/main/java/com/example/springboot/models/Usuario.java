@@ -27,7 +27,6 @@ public class Usuario {
 
 	@Column(name = "clave")
 	@NotNull(message = "Debe registrarse una contrasena")
-	@Size(min = 8, max = 16, message = "La contrasena debe tener entre 8 y 16 caracteres")
     private String clave;
 
     //@OneToMany(mappedBy = "vehiculo", cascade = CascadeType.ALL, orphanRemoval = true)

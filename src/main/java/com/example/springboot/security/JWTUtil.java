@@ -30,20 +30,20 @@ public class JWTUtil {
     // Genera el JWT a partir del correo del usuario
     public String generateToken(String correo) {
         return Jwts.builder()
-                .setSubject(correo)
-                .setIssuedAt(new Date())
-                .setExpiration(new Date((new Date()).getTime() + jwt_expiration_ms))
-                .signWith(key, SignatureAlgorithm.HS256)
-                .compact();
+            .setSubject(correo)
+            .setIssuedAt(new Date())
+            .setExpiration(new Date((new Date()).getTime() + jwt_expiration_ms))
+            .signWith(key, SignatureAlgorithm.HS256)
+            .compact();
     }
 
     // Obtiene el correo del usuario a partir del token
     public String getCorreoFromToken(String token) {
         return Jwts.parserBuilder()
-                .setSigningKey(key).build()
-                .parseClaimsJws(token)
-                .getBody()
-                .getSubject();
+            .setSigningKey(key).build()
+            .parseClaimsJws(token)
+            .getBody()
+            .getSubject();
     }
 
     // Valida el token del JWT
