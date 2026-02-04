@@ -7,8 +7,20 @@ import java.time.LocalDate;
 import java.util.List;
 
 /*
-Clase que sirve para modelar las mantenciones
-de un vehiculo en particular.
+Mantencion:
+	Clase que representa las mantenciones hechas en un mismo vehiculo.
+	Cada vehiculo puede tener multiples mantenciones, sin embargo, cada
+	mantencion corresponde a un unico vehiculo.
+	Las mantenciones guardan informacion adicional para analisis posterior
+	si el usuario lo desea.
+
+	Campos:
+	* id: Numero entero que representa un valor unico entre cada mantencion.
+	* fecha: Fecha en la cual se hizo la mantencion (formato: YYYY-mm-DD).
+	* kilometros: Kilometraje reportado al momento de la mantencion.
+	* ubicacion: Lugar en donde se hizo la mantencion.
+	* detalle: Detalles u observaciones relevantes.
+	* vehiculo: Vehiculo al cual corresponde.
 */
 
 @Entity

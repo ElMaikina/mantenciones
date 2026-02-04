@@ -5,7 +5,15 @@ import jakarta.persistence.*;
 import java.util.List;
 
 /*
-Clase que sirve para modelar a los usuarios de la aplicacion.
+Usuario:
+	Clase que representa a los usuarios reales de la aplicacion.
+	Este puede crear vehiculos con sus respectivas mantenciones.
+	De momento no existe jerarquia para los permisos.
+
+	Campos:
+	* id: Numero entero que representa un valor unico entre cada usuario.
+	* correo: Correo con el cual el usuario registro la cuenta.
+	* clave: Contrasena para autenticar al usuario.
 */
 
 @Entity

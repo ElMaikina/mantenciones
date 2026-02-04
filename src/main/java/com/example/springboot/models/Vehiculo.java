@@ -5,8 +5,20 @@ import jakarta.persistence.*;
 import java.util.List;
 
 /*
-Clase que sirve para modelar los distintos tipos de vehiculo
-a los cuales se les hace la mantencion.
+Vehiculo:
+	Clase que representa los vehiculos registrados por el usuario.
+	Cada vehiculo puede tener multiples mantenciones, sin embargo, cada
+	mantencion corresponde a un unico vehiculo.
+	Cada vehiculo se caracteriza por tener una patente unica en el
+	marco legal chileno.
+
+	Campos:
+	* id: Numero entero que representa un valor unico entre cada vehiculo.
+	* kilometros_actuales: Ultimo kilometraje reportado por el usuario.
+	* kilometros_entre: Kilometraje ideal entre cada mantencion.
+	* tipo: Tipo de vehiculo (Bus, Minibus, Camion, Auto, etc.).
+	* observacion: Detalles especificos del vehiculo.
+	* mantenciones: Lista de mantenciones hechas.
 */
 
 @Entity
