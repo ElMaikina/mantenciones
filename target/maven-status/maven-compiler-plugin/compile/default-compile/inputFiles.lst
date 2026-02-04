@@ -3,8 +3,11 @@
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/controllers/MantencionController.java
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/controllers/VehiculoController.java
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/models/Mantencion.java
+/home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/models/Usuario.java
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/models/Vehiculo.java
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/repositories/MantencionRepository.java
+/home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/repositories/UsuarioRepository.java
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/repositories/VehiculoRepository.java
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/serializers/MantencionSerial.java
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/serializers/VehiculoSerial.java
+/home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/utils/JWTUtil.java
