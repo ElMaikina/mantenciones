@@ -39,20 +39,20 @@ public class WebSecurityConfig {
     private AuthEntryPointJWT unauthorized_handler;
 
     @Bean
-    public AuthTokenFilter authenticationJWTTokenFilter() {
+    public AuthTokenFilter setAuthTokenFilter() {
         return new AuthTokenFilter();
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(
-        AuthenticationConfiguration authenticationConfiguration
+    public AuthenticationManager setAuthManager(
+        AuthenticationConfiguration config
     ) throws Exception {
-        return authenticationConfiguration.getAuthenticationManager();
+        return config.getAuthenticationManager();
     }
 
     // Metodo de encripcion para la contrasena de los usuarios
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    public PasswordEncoder setPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -75,7 +75,7 @@ public class WebSecurityConfig {
                     .anyRequest().authenticated()
             );
         // Agregar el filtro por JWT antes que UsernamePasswordAuthenticationFilter
-        http.addFilterBefore(authenticationJWTTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(setAuthTokenFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 }
