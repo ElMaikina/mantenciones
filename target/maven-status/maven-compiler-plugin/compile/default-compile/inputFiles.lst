@@ -1,4 +1,5 @@
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/Application.java
+/home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/controllers/AuthController.java
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/controllers/HelloController.java
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/controllers/MantencionController.java
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/controllers/VehiculoController.java
@@ -8,6 +9,10 @@
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/repositories/MantencionRepository.java
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/repositories/UsuarioRepository.java
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/repositories/VehiculoRepository.java
+/home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/security/AuthEntryPointJWT.java
+/home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/security/AuthTokenFilter.java
+/home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/security/JWTUtil.java
+/home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/security/WebSecurityConfig.java
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/serializers/MantencionSerial.java
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/serializers/VehiculoSerial.java
-/home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/utils/JWTUtil.java
+/home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/services/CustomUserDetailsService.java

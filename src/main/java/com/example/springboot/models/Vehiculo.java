@@ -10,7 +10,7 @@ a los cuales se les hace la mantencion.
 */
 
 @Entity
-@Table(name="Vehiculos")
+@Table(name="vehiculos")
 public class Vehiculo {
 
     @Id

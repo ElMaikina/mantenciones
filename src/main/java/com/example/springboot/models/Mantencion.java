@@ -12,7 +12,7 @@ de un vehiculo en particular.
 */
 
 @Entity
-@Table(name="Mantenciones")
+@Table(name="mantenciones")
 public class Mantencion {
 
     @Id

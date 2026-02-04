@@ -9,7 +9,7 @@ Clase que sirve para modelar a los usuarios de la aplicacion.
 */
 
 @Entity
-@Table(name="Usuarios")
+@Table(name="usuarios")
 public class Usuario {
 
     @Id

@@ -4,10 +4,15 @@ com/example/springboot/repositories/MantencionRepository.class
 com/example/springboot/controller/MantencionController.class
 com/example/springboot/serializers/MantencionSerial.class
 com/example/springboot/repositories/UsuarioRepository.class
+com/example/springboot/security/WebSecurityConfig.class
 com/example/springboot/serializers/VehiculoSerial.class
 com/example/springboot/Application.class
-com/example/springboot/utils/JWTUtil.class
+com/example/springboot/controllers/AuthController.class
+com/example/springboot/services/CustomUserDetailsService.class
 com/example/springboot/controller/VehiculoController.class
 com/example/springboot/repositories/VehiculoRepository.class
+com/example/springboot/security/JWTUtil.class
+com/example/springboot/security/AuthEntryPointJWT.class
+com/example/springboot/security/AuthTokenFilter.class
 com/example/springboot/controller/HelloController.class
 com/example/springboot/models/Usuario.class
