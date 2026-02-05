@@ -1,6 +1,5 @@
 package com.example.springboot.models;
 
-import com.example.springboot.models.Vehiculo;
 import jakarta.validation.constraints.*;
 import jakarta.persistence.*;
 import java.time.LocalDate;
@@ -48,6 +47,7 @@ public class Mantencion {
 
     @ManyToOne
 	@JoinColumn(name = "vehiculo_id")
+	@NotNull(message = "Debe indicar a que vehiculo se le hizo la mantencion")
     private Vehiculo vehiculo;
 
 	public Mantencion() {

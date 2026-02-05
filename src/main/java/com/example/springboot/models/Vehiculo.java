@@ -19,6 +19,7 @@ Vehiculo:
 	* tipo: Tipo de vehiculo (Bus, Minibus, Camion, Auto, etc.).
 	* observacion: Detalles especificos del vehiculo.
 	* mantenciones: Lista de mantenciones hechas.
+	* usuario: Usuario al cual le pertenece.
 */
 
 @Entity
@@ -53,6 +54,10 @@ public class Vehiculo {
 
     @OneToMany(mappedBy = "vehiculo", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Mantencion> mantenciones;
+
+    @ManyToOne
+	@JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
 	public Vehiculo() {
 	}

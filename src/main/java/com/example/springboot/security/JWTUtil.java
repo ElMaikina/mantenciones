@@ -18,7 +18,7 @@ JWTUtil:
 
 	Campos:
 	* jwt_secret: String que contiene el valor clave para la autenticacion. 
-    (yo use el correo)
+    Con el fin de respetar los principios de REST, decidi usar el id.
 	* jwt_expiration_ms: Tiempo de validez en milisegundos para el JWT.
 	* key: Llave para la encriptacion y desencriptacion de los datos.
 */
@@ -52,7 +52,7 @@ public class JWTUtil {
     }
 
     // Obtiene el correo del usuario a partir del token
-    public String getCorreoFromToken(String token) {
+    public String extractSecret(String token) {
         return Jwts.parserBuilder()
             .setSigningKey(key).build()
             .parseClaimsJws(token)
@@ -61,7 +61,7 @@ public class JWTUtil {
     }
 
     // Valida el token del JWT
-    public boolean validateJWTToken(String token) {
+    public boolean validateToken(String token) {
         try {
             Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
             return true;

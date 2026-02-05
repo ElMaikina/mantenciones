@@ -37,8 +37,8 @@ public class Usuario {
 	@NotNull(message = "Debe registrarse una contrasena")
     private String clave;
 
-    //@OneToMany(mappedBy = "vehiculo", cascade = CascadeType.ALL, orphanRemoval = true)
-    //private List<Mantencion> mantenciones;
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Vehiculo> vehiculos;
 
 	public Usuario() {
 	}

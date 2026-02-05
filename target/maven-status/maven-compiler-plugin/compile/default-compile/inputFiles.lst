@@ -2,6 +2,7 @@
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/controllers/AuthController.java
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/controllers/HelloController.java
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/controllers/MantencionController.java
+/home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/controllers/UsuarioController.java
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/controllers/VehiculoController.java
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/models/Mantencion.java
 /home/elmaikina/Code/mantenciones/src/main/java/com/example/springboot/models/Usuario.java

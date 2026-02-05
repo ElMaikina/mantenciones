@@ -10,6 +10,7 @@ com/example/springboot/controllers/AuthController.class
 com/example/springboot/storage/MantencionStorage.class
 com/example/springboot/services/CustomUserDetailsService.class
 com/example/springboot/views/MantencionView.class
+com/example/springboot/controller/UsuarioController.class
 com/example/springboot/controller/VehiculoController.class
 com/example/springboot/security/JWTUtil.class
 com/example/springboot/security/AuthEntryPointJWT.class

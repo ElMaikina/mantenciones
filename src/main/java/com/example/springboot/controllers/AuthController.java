@@ -26,7 +26,7 @@ public class AuthController {
     @Autowired
     JWTUtil jwt_utils;
 
-    @PostMapping("/signin")
+    @PostMapping("/sign-in")
     public String authenticateUsuario(@RequestBody Usuario usuario) {
         Authentication auth = auth_manager.authenticate(
             new UsernamePasswordAuthenticationToken(
@@ -38,10 +38,10 @@ public class AuthController {
         return jwt_utils.generateToken(details.getUsername());
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/sign-up")
     public String registerUsuario(@RequestBody Usuario usuario) {
         if (repository.existsByCorreo(usuario.getCorreo())) {
-            return "Error: Ya existe un usuario con ese correo!";
+            return "Ya existe un usuario con ese correo!";
         }
         String contrasena = encoder.encode(usuario.getClave());
         usuario.setClave(contrasena);

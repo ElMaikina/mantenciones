@@ -15,6 +15,6 @@ public class HelloController {
 
 	@GetMapping("/")
 	public String index() {
-		return "El Back-End esta funcionando!";
+		return "Hola mundo!";
 	}
 }
